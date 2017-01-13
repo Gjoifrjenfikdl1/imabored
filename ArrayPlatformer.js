@@ -7,7 +7,7 @@ var canvas = document.getElementById("canvas"),
 ctx = canvas.getContext("2d"),
 //create width and height of canvas
 width = 640,
-height = 640,
+height = 560,
 //give starting player properties
 keys = [],
 friction = 0.8,
@@ -15,26 +15,30 @@ gravity = 0.3;
 //set width and height of canvas
 canvas.width = width;
 canvas.height = height;
-
-var data=[
+var level=0;
+var type="";
+var levels=[
     [1,2,0,0,1,0,0,0,0,0,0,0,0,1,0,1],
     [1,0,0,0,1,0,0,1,0,0,0,0,0,1,0,1],
-    [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,1,0,0,0,0,0,0,1,1,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],
-    [1,0,0,0,0,1,1,1,1,0,0,1,1,1,1,1],
-    [1,0,0,0,0,1,1,1,0,0,1,1,1,1,1,1],
-    [1,0,0,0,0,1,1,0,0,1,1,1,1,1,1,1],
-    [1,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1],
-    [1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1],
-    [1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,3,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,9,0,1,1,1,1,1,1,1,1,1],
     [1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1],
-    [1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,3,0,0,0,0,0,0,0,0,9,1],
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
     ];
 
+var platforms = [];
+var players=[];
+var blocks = [];
+var lava = [];
+var portals = [];
 // works for rectangles
 var collide=function(obj1,obj2){
     if( obj1.x<obj2.x+obj2.w&&obj1.x+obj1.w>obj2.x&&
@@ -53,31 +57,33 @@ var Player=function(x,y,w,h,keyInputs,color){
     this.velx=0;
     this.vely=0;
     
-    this.moveSpeed=0.25;
-    this.maxSpeed=2.5;
+    this.moveSpeed=2;
+    this.maxSpeed=4;
     
     this.falling=false;
     this.gravity=0.4;
     this.color="red";
+    this.dead="false";
+    this.health=this.w;
 };
 
-Player.prototype.update=function(blocks){
+Player.prototype.update=function(platforms){
     // key inputs and there responses
     if(keys[38] || keys[32]){
-      if(!this.jumping && !this.falling){
+      if(!this.falling){
         this.vely=-8;
         this.falling=true;
       }
     }
     if(keys[39]){
-        this.velx+=this.moveSpeed/2;
+        this.velx+=this.moveSpeed;
         this.frame+=this.frameSpeed;
         this.direction="right";
     }
     
     if(keys[37]){
       
-        this.velx-=this.moveSpeed/2;
+        this.velx-=this.moveSpeed;
         this.frame+=this.frameSpeed;
         this.direction="left";
         
@@ -88,10 +94,10 @@ Player.prototype.update=function(blocks){
         !keys[39])
     {
         if(this.velx>0){
-            this.velx-=this.moveSpeed/2;
+            this.velx-=this.moveSpeed;
         }
         if(this.velx<0){
-            this.velx+=this.moveSpeed/2;
+            this.velx+=this.moveSpeed;
         }
     }
 
@@ -109,37 +115,59 @@ Player.prototype.update=function(blocks){
     // update the x and y positions
     this.x+=this.velx;
     this.applyCollision(blocks,this.velx,0);
+    this.applyCollision(lava,this.velx,0);
+    this.applyCollision(portals,this.velx,0);
     
     this.falling=true;
     this.y+=this.vely;
     this.applyCollision(blocks,0,this.vely);
+    this.applyCollision(lava,this.vely,0);
+    this.applyCollision(portals,this.vely,0);
     this.vely+=this.gravity;
 };
 
-Player.prototype.applyCollision=function(obj,velx,vely){
-    for(var i=0; i<obj.length; i++){
-        if(collide(this,obj[i]))
+Player.prototype.applyCollision=function(platforms,velx,vely){
+  if(platforms===blocks){
+    for(var i=0; i<platforms.length; i++){
+        if(collide(this,platforms[i]))
         {
             if(vely>0){
                 this.vely=0;
                 this.falling=false;
-                this.y=obj[i].y-this.h;
+                this.y=platforms[i].y-this.h;
             }
             if(vely<0){
                 this.vely=0;
                 this.falling=true;
-                this.y=obj[i].y+obj[i].h;
+                this.y=platforms[i].y+platforms[i].h;
             }
             if(velx<0){
                 this.velx=0;
-                this.x=obj[i].x+obj[i].w;
+                this.x=platforms[i].x+platforms[i].w;
             }
             if(velx>0){
                 this.velx=0;
-                this.x=obj[i].x-this.w;
+                this.x=platforms[i].x-this.w;
             }
         }
     }
+  }else if(platforms===lava){
+    for(var i=0; i<platforms.length; i++){
+        if(collide(this,platforms[i]))
+        {
+            this.health-=2;
+            type="lava";
+        }
+    }
+  }
+  else if(platforms===portals){
+    for(var i=0; i<platforms.length; i++){
+        if(collide(this,platforms[i]))
+        {
+            level++;
+        }
+    }
+  }
 };
 
 Player.prototype.draw= function() {
@@ -147,10 +175,10 @@ Player.prototype.draw= function() {
     ctx.fillStyle=this.color;
     ctx.fill();
     ctx.fillRect(this.x,this.y,this.w,this.h,10);
+    ctx.fillStyle="green";
+    ctx.fillRect(this.x,this.y-20,this.health,10,10);
 };
 
-// store 'Player' objects into an array
-var players=[];
 players.add=function(x,y,w,h,keyInputs,color){
     players.push(new Player(x,y,w,h,keyInputs,color));
 };
@@ -167,7 +195,7 @@ var Block=function(x,y,w,h,color){
     this.y=y;
     this.w=w;
     this.h=h;
-    this.color=color;
+    this.color="black";
 };
 
 Block.prototype.draw= function() {
@@ -175,45 +203,139 @@ Block.prototype.draw= function() {
     ctx.fill();
     ctx.fillRect(this.x,this.y,this.w,this.h);
 };
-
-var blocks=[];
+var Lava=function(x,y,w,h,color){
+    this.x=x;
+    this.y=y;
+    this.w=w;
+    this.h=h;
+    this.color="darkred";
+};
+Lava.prototype.draw= function() {
+    ctx.fillStyle=this.color;
+    ctx.fill();
+    ctx.fillRect(this.x,this.y,this.w,this.h);
+};
+var Portal=function(x,y,w,h,color){
+    this.x=x;
+    this.y=y;
+    this.w=w;
+    this.h=h;
+    this.color="blue";
+};
+Portal.prototype.draw= function() {
+    ctx.fillStyle=this.color;
+    ctx.fill();
+    ctx.fillRect(this.x,this.y,this.w,this.h);
+};
 blocks.add=function(x,y,w,h,color){
     blocks.push(new Block(x,y,w,h,color));
 };
+lava.add=function(x,y,w,h,color){
+    lava.push(new Lava(x,y,w,h,color));
+};
+portals.add=function(x,y,w,h,color){
+    portals.push(new Portal(x,y,w,h,color));
+};
 blocks.apply=function(players){
     for(var i=0; i<blocks.length; i++){
+        platforms.push(blocks[i]);
         blocks[i].draw();
+    }
+};
+lava.apply=function(players){
+    for(var i=0; i<lava.length; i++){
+        platforms.push(lava[i]);
+        lava[i].draw();
+    }
+};
+portals.apply=function(players){
+    for(var i=0; i<portals.length; i++){
+        platforms.push(portals[i]);
+        portals[i].draw();
     }
 };
 
 function update(){
+  if(level>0){
 	ctx.clearRect(0, 0, width, height);
-  players.apply(blocks);
+  players.apply(platforms);
   blocks.apply(players);
+  lava.apply(players);
+  portals.apply(players);
   ctx.fillStyle="black";
+  checkDeath();
+  }else if(level===0){
+    ctx.fillStyle="green";
+    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle="black";
+    ctx.font = "90px Arial";
+    ctx.fillText("Platformer",130,200);
+    button(280,350,200,100,"Start","grey","40px Arial");
+  }
     // run through the loop again
     requestAnimationFrame(update);
 }
+function getMousePos(canvas, event) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top
+    };
+}
 
+function button(x,y,w,h,text,color,textSettings) {
+  ctx.fillStyle=color;
+  ctx.fillRect(x, y, w, h);
+  ctx.fillStyle="black";
+  ctx.font = textSettings;
+  ctx.fillText(text,x+w/3.5,y+h/1.6);
+}
+function isInside(pos, x,y,w,h){
+    return pos.x > x && pos.x < x+w && pos.y < y+h && pos.y > y
+}
+function checkDeath(){
+  for (var i = 0; i < players.length; i++) {
+    if(players[i].health<=0){
+      players[i].health=0;
+      players[i].dead=true;
+      level=-1;
+    }
+  }
+  if(level===-1){
+    ctx.fillStyle="red";
+    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle="black";
+    ctx.font = "50px Arial";
+    ctx.fillText("You died from "+type,100,300);
+  }
+}
 function map() {
-    // this is the code that reads the data:
+    // this is the code that reads the levels:
     // for loop for y axis
-    for(var col=0; col<data.length; col++){
+    for(var col=0; col<levels.length; col++){
     // for loop for x axis
-    for(var row=0; row<data[col].length; row++){
-        if(data[col][row]===0){
+    for(var row=0; row<levels[col].length; row++){
+        if(levels[col][row]===0){
             // leave blank
             ctx.fillStyle="white";
             ctx.fill();
             ctx.fillRect(row*25,col*25,25,25);
         }
-        if(data[col][row]===1){
+        if(levels[col][row]===1){
             // create block
             blocks.add(row*40,col*40,40,40,"black");
         }
-        if(data[col][row]===2){
+        if(levels[col][row]===2){
             // create player
             players.add(row*40,col*40,40,40);
+        }
+        if(levels[col][row]===3){
+            // create player
+            lava.add(row*40,col*40,40,40);
+        }
+        if(levels[col][row]===9){
+            // create player
+            portals.add(row*40,col*40,40,40);
         }
         
     }
@@ -225,6 +347,13 @@ window.addEventListener("load", function(){
   update();
 });
  
+canvas.addEventListener('click', function(evt) {
+    var mousePos = getMousePos(canvas, evt);
+
+    if (isInside(mousePos,280,350,200,100)&&level===0) {
+        level++;
+    }   
+}, false);
 
 document.body.addEventListener("keydown", function(e) {
     keys[e.keyCode] = true;
