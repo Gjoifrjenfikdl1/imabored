@@ -15,24 +15,24 @@ gravity = 0.3;
 //set width and height of canvas
 canvas.width = width;
 canvas.height = height;
-var level=0;
+var Level=0;
 var type="";
-var levels=[
-    [1,2,0,0,1,0,0,0,0,0,0,0,0,1,0,1],
-    [1,0,0,0,1,0,0,1,0,0,0,0,0,1,0,1],
-    [1,0,0,0,1,0,0,0,0,0,0,1,1,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],
-    [1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1],
-    [1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1],
-    [1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],
-    [1,0,0,0,0,0,0,3,1,1,1,1,1,1,1,1],
-    [1,0,0,0,0,9,0,1,1,1,1,1,1,1,1,1],
-    [1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1],
-    [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,3,0,0,0,0,0,0,0,0,9,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-    ];
+var level=
+   [[1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,9,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+
 
 var platforms = [];
 var players=[];
@@ -116,13 +116,13 @@ Player.prototype.update=function(platforms){
     this.x+=this.velx;
     this.applyCollision(blocks,this.velx,0);
     this.applyCollision(lava,this.velx,0);
-    this.applyCollision(portals,this.velx,0);
+
+    this.applyCollision(portals,0,0);
     
     this.falling=true;
     this.y+=this.vely;
     this.applyCollision(blocks,0,this.vely);
     this.applyCollision(lava,this.vely,0);
-    this.applyCollision(portals,this.vely,0);
     this.vely+=this.gravity;
 };
 
@@ -164,7 +164,8 @@ Player.prototype.applyCollision=function(platforms,velx,vely){
     for(var i=0; i<platforms.length; i++){
         if(collide(this,platforms[i]))
         {
-            level++;
+            Level++;
+            updateLevel();
         }
     }
   }
@@ -256,7 +257,8 @@ portals.apply=function(players){
 };
 
 function update(){
-  if(level>0){
+  if(Level>0){
+    console.log(Level);
 	ctx.clearRect(0, 0, width, height);
   players.apply(platforms);
   blocks.apply(players);
@@ -264,7 +266,7 @@ function update(){
   portals.apply(players);
   ctx.fillStyle="black";
   checkDeath();
-  }else if(level===0){
+  }else if(Level===0){
     ctx.fillStyle="green";
     ctx.fillRect(0, 0, width, height);
     ctx.fillStyle="black";
@@ -298,48 +300,171 @@ function checkDeath(){
     if(players[i].health<=0){
       players[i].health=0;
       players[i].dead=true;
-      level=-1;
+      Level=-1;
+      updateLevel();
     }
   }
-  if(level===-1){
+  if(Level===-1){
     ctx.fillStyle="red";
     ctx.fillRect(0, 0, width, height);
     ctx.fillStyle="black";
     ctx.font = "50px Arial";
     ctx.fillText("You died from "+type,100,300);
+  }else if(Level>4){
+    ctx.fillStyle="black";
+    ctx.font = "100px Arial";
+    ctx.fillText("You Won",130,300);
   }
+}
+function updateLevel() {
+  if(Level===2){
+    level=
+   [[1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,1,1,1,0,0,0,0,0,9,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    reset();
+    map();
+  }else if(Level===3){
+    level=
+   [[1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1],
+    [1,0,0,0,1,1,0,1,1,0,0,0,0,0,0,1],
+    [1,0,0,1,1,1,1,1,1,1,0,0,0,0,9,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    reset();
+    map();
+  }else if(Level===4){
+    level=
+   [[1,2,0,0,0,0,0,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1],
+    [1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1],
+    [1,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1],
+    [1,0,0,0,0,0,0,0,1,1,1,1,1,1,0,1],
+    [1,0,0,0,0,0,0,1,1,1,1,1,1,1,0,1],
+    [1,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1],
+    [1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1],
+    [1,0,0,0,1,1,1,1,1,1,1,1,1,1,0,1],
+    [1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1],
+    [1,0,1,1,1,1,1,1,1,1,1,1,1,1,9,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    reset();
+    map();
+  }else{
+    level=
+   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    reset();
+    map();
+  }
+}
+function reset() {
+  platforms = [];
+  players=[];
+  blocks = [];
+  lava = [];
+  portals = [];
+  players.add=function(x,y,w,h,keyInputs,color){
+    players.push(new Player(x,y,w,h,keyInputs,color));
+  };
+  players.apply=function(blocks){
+    for(var i=0; i<players.length; i++){
+        players[i].draw();
+        players[i].update(blocks);
+    }
+  };
+  blocks.add=function(x,y,w,h,color){
+    blocks.push(new Block(x,y,w,h,color));
+  };
+  lava.add=function(x,y,w,h,color){
+    lava.push(new Lava(x,y,w,h,color));
+  };
+  portals.add=function(x,y,w,h,color){
+    portals.push(new Portal(x,y,w,h,color));
+  };
+  blocks.apply=function(players){
+    for(var i=0; i<blocks.length; i++){
+        platforms.push(blocks[i]);
+        blocks[i].draw();
+    }
+  };
+  lava.apply=function(players){
+    for(var i=0; i<lava.length; i++){
+        platforms.push(lava[i]);
+        lava[i].draw();
+    }
+  };
+  portals.apply=function(players){
+    for(var i=0; i<portals.length; i++){
+        platforms.push(portals[i]);
+        portals[i].draw();
+    }
+};
 }
 function map() {
     // this is the code that reads the levels:
     // for loop for y axis
-    for(var col=0; col<levels.length; col++){
+    for(var col=0; col<level.length; col++){
     // for loop for x axis
-    for(var row=0; row<levels[col].length; row++){
-        if(levels[col][row]===0){
+    for(var row=0; row<level[col].length; row++){
+        if(level[col][row]===0){
             // leave blank
             ctx.fillStyle="white";
             ctx.fill();
             ctx.fillRect(row*25,col*25,25,25);
         }
-        if(levels[col][row]===1){
+        if(level[col][row]===1){
             // create block
             blocks.add(row*40,col*40,40,40,"black");
         }
-        if(levels[col][row]===2){
+        if(level[col][row]===2){
             // create player
             players.add(row*40,col*40,40,40);
         }
-        if(levels[col][row]===3){
-            // create player
+        if(level[col][row]===3){
+            // create lava
             lava.add(row*40,col*40,40,40);
         }
-        if(levels[col][row]===9){
+        if(level[col][row]===9){
             // create player
             portals.add(row*40,col*40,40,40);
         }
         
     }
-    }
+  }
 }
 //does update loop when window loads
 window.addEventListener("load", function(){
@@ -350,8 +475,8 @@ window.addEventListener("load", function(){
 canvas.addEventListener('click', function(evt) {
     var mousePos = getMousePos(canvas, evt);
 
-    if (isInside(mousePos,280,350,200,100)&&level===0) {
-        level++;
+    if (isInside(mousePos,280,350,200,100)&&Level===0) {
+        Level=1;
     }   
 }, false);
 
