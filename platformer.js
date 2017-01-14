@@ -409,7 +409,7 @@ function update(){
   if(Level>0){
     console.log(Level);
     console.log(LevelAmount);
-	ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width, height);
   players.apply(platforms);
   platforms.apply(blocks);
   platforms.apply(lava);
