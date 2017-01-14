@@ -1,4 +1,122 @@
-//does requestAnimationFrame if the browzer allows it othrwise it uses setInterval
+function updateLevel() {
+  if(Level===1){
+    level=
+   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,2,0,0,0,0,0,0,0,0,0,0,0,0,9,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    LevelAmount+=1;
+    reset();
+    map();
+  }else if(Level===2){
+    level=
+   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1],
+    [1,2,0,0,0,0,1,1,1,0,0,0,0,0,9,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    LevelAmount+=1;
+    reset();
+    map();
+  }else if(Level===3){
+    level=
+   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1],
+    [1,0,0,0,1,1,0,1,1,0,0,0,0,0,0,1],
+    [1,2,0,1,1,1,1,1,1,1,0,0,0,0,9,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    LevelAmount+=1;
+    reset();
+    map();
+  }else if(Level===4){
+    level=
+   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,2,0,0,0,0,0,0,3,0,0,0,0,0,9,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    LevelAmount+=1;
+    reset();
+    map();
+  }else if(Level===5){
+    level=
+   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,9,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,2,0,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    LevelAmount+=1;
+    reset();
+    map();
+  }else{
+    console.log(Level);
+    level=
+   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    reset();
+    map();
+  }
+}
+
+//does requestAnimationFrame if the browzer allows it otherwise it uses setInterval
 (function() {
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
@@ -16,29 +134,16 @@ gravity = 0.3;
 canvas.width = width;
 canvas.height = height;
 var Level=0;
+var LevelAmount=0;
 var type="";
-var level=
-   [[1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,9,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
-
-
+var level=[];
 var platforms = [];
 var players=[];
 var blocks = [];
 var lava = [];
 var portals = [];
+var spikes=[];
+var blockSize=40;
 // works for rectangles
 var collide=function(obj1,obj2){
     if( obj1.x<obj2.x+obj2.w&&obj1.x+obj1.w>obj2.x&&
@@ -48,11 +153,11 @@ var collide=function(obj1,obj2){
     }    
 };
 // Player Object
-var Player=function(x,y,w,h,keyInputs,color){
+var Player=function(x,y){
     this.x=x;
     this.y=y;
-    this.w=w;
-    this.h=h;
+    this.w=blockSize;
+    this.h=blockSize;
     
     this.velx=0;
     this.vely=0;
@@ -116,14 +221,16 @@ Player.prototype.update=function(platforms){
     this.x+=this.velx;
     this.applyCollision(blocks,this.velx,0);
     this.applyCollision(lava,this.velx,0);
+    this.applyCollision(spikes,this.velx,0);
 
-    this.applyCollision(portals,0,0);
-    
     this.falling=true;
     this.y+=this.vely;
     this.applyCollision(blocks,0,this.vely);
     this.applyCollision(lava,this.vely,0);
+    this.applyCollision(spikes,this.vely,0);
     this.vely+=this.gravity;
+
+    this.applyCollision(portals,0,0);
 };
 
 Player.prototype.applyCollision=function(platforms,velx,vely){
@@ -169,6 +276,14 @@ Player.prototype.applyCollision=function(platforms,velx,vely){
         }
     }
   }
+  else if(platforms===spikes){
+    for(var i=0; i<platforms.length; i++){
+        if(collide(this,platforms[i]))
+        {
+            this.dead=true;
+        }
+    }
+  }
 };
 
 Player.prototype.draw= function() {
@@ -179,80 +294,76 @@ Player.prototype.draw= function() {
     ctx.fillStyle="green";
     ctx.fillRect(this.x,this.y-20,this.health,10,10);
 };
-
-players.add=function(x,y,w,h,keyInputs,color){
-    players.push(new Player(x,y,w,h,keyInputs,color));
-};
 players.apply=function(blocks){
     for(var i=0; i<players.length; i++){
         players[i].draw();
         players[i].update(blocks);
     }
 };
-
 // Block Object
-var Block=function(x,y,w,h,color){
+var Block=function(x,y,color){
     this.x=x;
     this.y=y;
-    this.w=w;
-    this.h=h;
+    this.w=blockSize;
+    this.h=blockSize;
     this.color="black";
 };
 
 Block.prototype.draw= function() {
     ctx.fillStyle=this.color;
     ctx.fill();
-    ctx.fillRect(this.x,this.y,this.w,this.h);
+    ctx.fillRect(this.x,this.y,blockSize,blockSize);
 };
-var Lava=function(x,y,w,h,color){
+var Lava=function(x,y,color){
     this.x=x;
     this.y=y;
-    this.w=w;
-    this.h=h;
+    this.w=blockSize;
+    this.h=blockSize;
     this.color="darkred";
 };
 Lava.prototype.draw= function() {
-    ctx.fillStyle=this.color;
+    
     ctx.fill();
-    ctx.fillRect(this.x,this.y,this.w,this.h);
+    ctx.fillStyle=this.color;
+    ctx.fillRect(this.x,this.y,blockSize,blockSize);
 };
-var Portal=function(x,y,w,h,color){
+var Spike=function(x,y,color){
     this.x=x;
     this.y=y;
-    this.w=w;
-    this.h=h;
+    this.w=blockSize;
+    this.h=blockSize;
+    this.color="black";
+};
+Spike.prototype.draw= function() {
+    ctx.beginPath();
+    
+    ctx.moveTo(this.x,this.y+blockSize);
+    ctx.lineTo(this.w+this.x,this.y+blockSize);
+    ctx.lineTo((this.x*2+blockSize)/2,this.y);
+    ctx.fill();
+    ctx.fillStyle = this.color;
+    ctx.closePath();
+};
+var Portal=function(x,y,color){
+    this.x=x;
+    this.y=y;
+    this.w=blockSize;
+    this.h=blockSize;
     this.color="blue";
 };
 Portal.prototype.draw= function() {
-    ctx.fillStyle=this.color;
+    
     ctx.fill();
-    ctx.fillRect(this.x,this.y,this.w,this.h);
+    ctx.fillStyle=this.color;
+    ctx.fillRect(this.x,this.y,blockSize,blockSize);
 };
-blocks.add=function(x,y,w,h,color){
-    blocks.push(new Block(x,y,w,h,color));
-};
-lava.add=function(x,y,w,h,color){
-    lava.push(new Lava(x,y,w,h,color));
-};
-portals.add=function(x,y,w,h,color){
-    portals.push(new Portal(x,y,w,h,color));
-};
-blocks.apply=function(players){
-    for(var i=0; i<blocks.length; i++){
-        platforms.push(blocks[i]);
-        blocks[i].draw();
-    }
-};
-lava.apply=function(players){
-    for(var i=0; i<lava.length; i++){
-        platforms.push(lava[i]);
-        lava[i].draw();
-    }
-};
-portals.apply=function(players){
-    for(var i=0; i<portals.length; i++){
-        platforms.push(portals[i]);
-        portals[i].draw();
+platforms.add=function(type,obj,x,y,w,h){
+    type.push(new obj(x,y,w,h));
+}
+platforms.apply=function(type){
+    for(var i=0; i<type.length; i++){
+        platforms.push(type[i]);
+        type[i].draw();
     }
 };
 
@@ -261,9 +372,10 @@ function update(){
     console.log(Level);
 	ctx.clearRect(0, 0, width, height);
   players.apply(platforms);
-  blocks.apply(players);
-  lava.apply(players);
-  portals.apply(players);
+  platforms.apply(blocks);
+  platforms.apply(lava);
+  platforms.apply(spikes);
+  platforms.apply(portals);
   ctx.fillStyle="black";
   checkDeath();
   }else if(Level===0){
@@ -272,7 +384,7 @@ function update(){
     ctx.fillStyle="black";
     ctx.font = "90px Arial";
     ctx.fillText("Platformer",130,200);
-    button(280,350,200,100,"Start","grey","40px Arial");
+    button(280,350,200,100,"Start","grey","40px Arial",340);
   }
     // run through the loop again
     requestAnimationFrame(update);
@@ -285,12 +397,12 @@ function getMousePos(canvas, event) {
     };
 }
 
-function button(x,y,w,h,text,color,textSettings) {
+function button(x,y,w,h,text,color,textSettings,textX) {
   ctx.fillStyle=color;
   ctx.fillRect(x, y, w, h);
   ctx.fillStyle="black";
   ctx.font = textSettings;
-  ctx.fillText(text,x+w/3.5,y+h/1.6);
+  ctx.fillText(text,textX,y+h/1.6);
 }
 function isInside(pos, x,y,w,h){
     return pos.x > x && pos.x < x+w && pos.y < y+h && pos.y > y
@@ -310,103 +422,11 @@ function checkDeath(){
     ctx.fillStyle="black";
     ctx.font = "50px Arial";
     ctx.fillText("You died from "+type,100,300);
-  }else if(Level>4){
+    button(280,350,200,100,"Restart","grey","40px Arial",320);
+  }else if(Level>LevelAmount){
     ctx.fillStyle="black";
     ctx.font = "100px Arial";
     ctx.fillText("You Won",130,300);
-  }
-}
-function updateLevel() {
-  if(Level===2){
-    level=
-   [[1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,1,1,1,0,0,0,0,0,9,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
-    reset();
-    map();
-  }else if(Level===3){
-    level=
-   [[1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1],
-    [1,0,0,0,1,1,0,1,1,0,0,0,0,0,0,1],
-    [1,0,0,1,1,1,1,1,1,1,0,0,0,0,9,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
-    reset();
-    map();
-  }else if(Level===4){
-    level=
-   [[1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,3,0,0,0,0,0,0,9,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
-    reset();
-    map();
-  }else if(Level===5){
-    level=
-   [[1,2,0,0,0,0,0,1,1,1,1,1,1,1,1,1],
-    [1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1],
-    [1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1],
-    [1,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1],
-    [1,0,0,0,0,0,0,0,1,1,1,1,1,1,0,1],
-    [1,0,0,0,0,0,0,1,1,1,1,1,1,1,0,1],
-    [1,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1],
-    [1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1],
-    [1,0,0,0,1,1,1,1,1,1,1,1,1,1,0,1],
-    [1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1],
-    [1,0,1,1,1,1,1,1,1,1,1,1,1,1,9,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
-    reset();
-    map();
-  }else{
-    level=
-   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
-    reset();
-    map();
   }
 }
 function reset() {
@@ -415,42 +435,22 @@ function reset() {
   blocks = [];
   lava = [];
   portals = [];
-  players.add=function(x,y,w,h,keyInputs,color){
-    players.push(new Player(x,y,w,h,keyInputs,color));
-  };
+  spikes = [];
   players.apply=function(blocks){
     for(var i=0; i<players.length; i++){
         players[i].draw();
         players[i].update(blocks);
     }
   };
-  blocks.add=function(x,y,w,h,color){
-    blocks.push(new Block(x,y,w,h,color));
+  platforms.add=function(type,obj,x,y,w,h){
+    type.push(new obj(x,y,w,h));
   };
-  lava.add=function(x,y,w,h,color){
-    lava.push(new Lava(x,y,w,h,color));
-  };
-  portals.add=function(x,y,w,h,color){
-    portals.push(new Portal(x,y,w,h,color));
-  };
-  blocks.apply=function(players){
-    for(var i=0; i<blocks.length; i++){
-        platforms.push(blocks[i]);
-        blocks[i].draw();
+    platforms.apply=function(type){
+    for(var i=0; i<type.length; i++){
+        platforms.push(type[i]);
+        type[i].draw();
     }
-  };
-  lava.apply=function(players){
-    for(var i=0; i<lava.length; i++){
-        platforms.push(lava[i]);
-        lava[i].draw();
-    }
-  };
-  portals.apply=function(players){
-    for(var i=0; i<portals.length; i++){
-        platforms.push(portals[i]);
-        portals[i].draw();
-    }
-};
+    };
 }
 function map() {
     // this is the code that reads the levels:
@@ -466,19 +466,23 @@ function map() {
         }
         if(level[col][row]===1){
             // create block
-            blocks.add(row*40,col*40,40,40,"black");
+            platforms.add(blocks,Block,row*40,col*40);
         }
         if(level[col][row]===2){
             // create player
-            players.add(row*40,col*40,40,40);
+            platforms.add(players,Player,row*40,col*40);
         }
         if(level[col][row]===3){
             // create lava
-            lava.add(row*40,col*40,40,40);
+            platforms.add(lava,Lava,row*40,col*40);
+        }
+        if(level[col][row]===4){
+            // create spike
+            platforms.add(spikes,Spike,row*40,col*40);
         }
         if(level[col][row]===9){
             // create player
-            portals.add(row*40,col*40,40,40);
+            platforms.add(portals,Portal,row*40,col*40);
         }
         
     }
@@ -486,7 +490,8 @@ function map() {
 }
 //does update loop when window loads
 window.addEventListener("load", function(){
-  map();
+  updateLevel();
+  //map();
   update();
 });
  
@@ -495,7 +500,12 @@ canvas.addEventListener('click', function(evt) {
 
     if (isInside(mousePos,280,350,200,100)&&Level===0) {
         Level=1;
+        updateLevel();
     }   
+    if (isInside(mousePos,280,350,200,100)&&Level===-1) {
+        Level=0;
+        updateLevel();
+    }  
 }, false);
 
 document.body.addEventListener("keydown", function(e) {
