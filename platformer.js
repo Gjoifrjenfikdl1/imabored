@@ -444,7 +444,8 @@ Player.prototype.applyCollision=function(platforms,velx,vely){
                 this.velx=0;
                 this.x=platforms[i].x-this.w;
             }
-            this.jumpHeight=-16;
+            this.vely=-6;
+            this.jumpHeight=-14;
         }
     }
   }
