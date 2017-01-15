@@ -13,7 +13,7 @@ function updateLevel() {
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,2,0,0,0,0,0,0,0,0,0,0,0,0,9,1],
+    [1,2,5,0,0,0,0,0,0,0,0,0,0,0,9,1],
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
     LevelAmount+=1;
     reset();
@@ -103,6 +103,44 @@ function updateLevel() {
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,9,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,2,0,0,0,0,0,4,0,0,0,0,0,0,0,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    LevelAmount+=1;
+    reset();
+    map();
+  }else if(Level===7){
+    level=
+   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,2,0,0,0,0,0,5,0,0,0,0,0,0,9,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    LevelAmount+=1;
+    reset();
+    map();
+  }else if(Level===8){
+    level=
+   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
@@ -113,7 +151,7 @@ function updateLevel() {
     LevelAmount+=1;
     reset();
     map();
-  }else if(Level===7){
+  }else if(Level===9){
     level=
    [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
@@ -132,7 +170,27 @@ function updateLevel() {
     LevelAmount+=1;
     reset();
     map();
-  }else if(Level===8){
+  }else if(Level===10){
+    console.log(Level);
+    level=
+   [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,3,2,3,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,3,0,3,0,0,0,1,1,0,1],
+    [1,0,0,0,0,0,3,0,3,0,1,0,0,0,0,1],
+    [1,0,0,0,0,0,3,0,3,0,0,0,1,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,1,5,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,4,0,0,0,0,1],
+    [1,1,1,1,1,1,1,0,1,1,1,1,0,0,0,1],
+    [1,0,0,0,0,0,3,0,3,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,3,0,3,0,0,0,0,0,5,1],
+    [1,0,0,0,0,0,3,0,3,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,3,0,3,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,3,4,3,9,0,3,0,0,0,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+    LevelAmount+=1;
+    reset();
+    map();
+  }else if(Level===11){
     level=
    [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
     [1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
@@ -140,10 +198,10 @@ function updateLevel() {
     [1,1,0,0,3,0,0,3,0,0,0,3,0,0,0,1],
     [1,0,3,1,3,3,1,3,3,1,3,3,1,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,3,0,0,1,1],
-    [1,0,0,0,0,0,0,0,0,1,3,1,0,1,0,1],
-    [1,0,0,0,0,0,0,1,3,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,1,3,0,0,3,1,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+    [1,0,0,0,0,0,0,0,1,3,0,3,0,1,0,1],
+    [1,0,0,0,0,0,0,1,3,0,1,0,0,0,0,1],
     [1,0,0,0,0,1,3,0,0,0,0,1,1,0,0,1],
     [1,0,0,1,3,0,0,0,0,0,0,0,0,0,1,1],
     [1,2,3,0,0,0,0,0,0,0,0,0,1,0,0,1],
@@ -192,12 +250,14 @@ canvas.width = width;
 canvas.height = height;
 var Level=0;
 var LevelAmount=0;
+var currentLevel=0;
 var type="";
 var level=[];
 var platforms = [];
 var players=[];
 var blocks = [];
 var lava = [];
+var bounce=[];
 var portals = [];
 var spikes=[];
 var blockSize=40;
@@ -218,7 +278,8 @@ var Player=function(x,y){
     
     this.velx=0;
     this.vely=0;
-    
+
+    this.jumpHeight=-8;
     this.moveSpeed=2;
     this.maxSpeed=4;
     
@@ -232,8 +293,9 @@ var Player=function(x,y){
 Player.prototype.update=function(platforms){
     // key inputs and there responses
     if(keys[38] || keys[32]){
+
       if(!this.falling){
-        this.vely=-8;
+        this.vely=this.jumpHeight;
         this.falling=true;
       }
     }
@@ -279,12 +341,14 @@ Player.prototype.update=function(platforms){
     this.applyCollision(blocks,this.velx,0);
     this.applyCollision(lava,this.velx,0);
     this.applyCollision(spikes,this.velx,0);
+    this.applyCollision(bounce,this.velx,0);
 
     this.falling=true;
     this.y+=this.vely;
     this.applyCollision(blocks,0,this.vely);
-    this.applyCollision(lava,this.vely,0);
-    this.applyCollision(spikes,this.vely,0);
+    this.applyCollision(lava,0,this.vely);
+    this.applyCollision(spikes,0,this.vely);
+    this.applyCollision(bounce,0,this.vely);
     this.vely+=this.gravity;
 
     this.applyCollision(portals,0,0);
@@ -292,6 +356,7 @@ Player.prototype.update=function(platforms){
 
 Player.prototype.applyCollision=function(platforms,velx,vely){
   if(platforms===blocks){
+    this.jumpHeight=-8;
     for(var i=0; i<platforms.length; i++){
         if(collide(this,platforms[i]))
         {
@@ -337,7 +402,49 @@ Player.prototype.applyCollision=function(platforms,velx,vely){
     for(var i=0; i<platforms.length; i++){
         if(collide(this,platforms[i]))
         {
-            this.dead=true;
+            if(vely>0){
+                this.health-=40;
+                type="a spike";
+            }
+            if(vely<0){
+                this.vely=0;
+                this.falling=true;
+                this.y=platforms[i].y+platforms[i].h;
+            }
+            if(velx<0){
+                this.velx=0;
+                this.x=platforms[i].x+platforms[i].w;
+            }
+            if(velx>0){
+                this.velx=0;
+                this.x=platforms[i].x-this.w;
+            }
+        }
+    }
+  }
+  else if(platforms===bounce){
+    for(var i=0; i<platforms.length; i++){
+        if(collide(this,platforms[i]))
+        {
+            if(vely>0){
+                this.vely=0;
+                this.falling=false;
+                this.y=platforms[i].y-this.h;
+            }
+            if(vely<0){
+                this.vely=0;
+                this.falling=true;
+                this.y=platforms[i].y+platforms[i].h;
+            }
+            if(velx<0){
+                this.velx=0;
+                this.x=platforms[i].x+platforms[i].w;
+            }
+            if(velx>0){
+                this.velx=0;
+                this.x=platforms[i].x-this.w;
+            }
+            this.jumpHeight=-16;
         }
     }
   }
@@ -384,22 +491,39 @@ Lava.prototype.draw= function() {
     ctx.fillStyle=this.color;
     ctx.fillRect(this.x,this.y,blockSize,blockSize);
 };
+var Bounce=function(x,y,color){
+    this.x=x;
+    this.y=y;
+    this.w=blockSize;
+    this.h=blockSize;
+    this.color="purple";
+};
+Bounce.prototype.draw= function() {
+    
+    ctx.fill();
+    ctx.fillStyle=this.color;
+    ctx.fillRect(this.x,this.y,blockSize,blockSize/2);
+};
 var Spike=function(x,y,color){
     this.x=x;
     this.y=y;
     this.w=blockSize;
     this.h=blockSize;
-    this.color="black";
+    this.color="grey";
 };
 Spike.prototype.draw= function() {
     ctx.beginPath();
-    
-    ctx.moveTo(this.x,this.y+blockSize);
-    ctx.lineTo(this.w+this.x,this.y+blockSize);
-    ctx.lineTo((this.x*2+blockSize)/2,this.y);
     ctx.fill();
     ctx.fillStyle = this.color;
+    ctx.moveTo(this.x,this.y+blockSize);
+    ctx.lineTo(this.w+this.x,this.y+blockSize);
+    ctx.lineTo((this.x*2+blockSize)/2,this.y)
+    ctx.lineTo(this.x,this.y+blockSize);
     ctx.closePath();
+    ctx.fill();
+    /*
+    ctx.fillStyle=this.color;
+    ctx.fillRect(this.x,this.y,blockSize,blockSize);*/
 };
 var Portal=function(x,y,color){
     this.x=x;
@@ -426,12 +550,12 @@ platforms.apply=function(type){
 
 function update(){
   if(Level>0){
-    console.log(Level);
-    console.log(LevelAmount);
+    currentLevel=Level;
     ctx.clearRect(0, 0, width, height);
   players.apply(platforms);
   platforms.apply(blocks);
   platforms.apply(lava);
+  platforms.apply(bounce);
   platforms.apply(spikes);
   platforms.apply(portals);
   ctx.fillStyle="black";
@@ -473,6 +597,13 @@ function checkDeath(){
       Level=-1;
       updateLevel();
     }
+    if(players[i].y>height){
+        players[i].health=0;
+      players[i].dead=true;
+      Level=-1;
+      type="falling";
+      updateLevel();
+    }
   }
   if(Level===-1){
     ctx.fillStyle="red";
@@ -484,7 +615,9 @@ function checkDeath(){
   }else if(Level>LevelAmount){
     ctx.fillStyle="black";
     ctx.font = "100px Arial";
-    ctx.fillText("You Won",130,300);
+    ctx.fillText("You Won!!",100,300);
+    ctx.font = "32px Arial";
+    ctx.fillText("More levels coming soon!",150,350);
   }
 }
 function reset() {
@@ -494,6 +627,7 @@ function reset() {
   lava = [];
   portals = [];
   spikes = [];
+  bounce = [];
   players.apply=function(blocks){
     for(var i=0; i<players.length; i++){
         players[i].draw();
@@ -520,7 +654,7 @@ function map() {
             // leave blank
             ctx.fillStyle="white";
             ctx.fill();
-            ctx.fillRect(row*25,col*25,25,25);
+            ctx.fillRect(row*40,col*40,40,40);
         }
         if(level[col][row]===1){
             // create block
@@ -535,6 +669,10 @@ function map() {
             platforms.add(lava,Lava,row*40,col*40);
         }
         if(level[col][row]===4){
+            // create bounce pad
+            platforms.add(bounce,Bounce,row*40,col*40);
+        }
+        if(level[col][row]===5){
             // create spike
             platforms.add(spikes,Spike,row*40,col*40);
         }
@@ -561,8 +699,8 @@ canvas.addEventListener('click', function(evt) {
         updateLevel();
     }   
     if (isInside(mousePos,280,350,200,100)&&Level===-1) {
-        Level=0;
-        LevelAmount=0;
+        Level=currentLevel;
+        LevelAmount=currentLevel;
         updateLevel();
     }  
 }, false);
